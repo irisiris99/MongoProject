@@ -41,5 +41,5 @@ app.listen(PORT, async () => {
     database: 'myapp',
     password: 'root',
   });
-  console.log('server running !');
+  console.log('server running !!');
 });
