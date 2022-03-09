@@ -27,13 +27,12 @@ app.get('/database', async function (req, res) {
   res.send(rows);
 });
 
-app.post('database', function (req, res) {
-  const title = req.body.title;
-  database.push({
-    id: database.length + 1,
-    title,
-  })
-})
+app.post('/database', async function (req, res) {
+  const { name, age } = req.body;
+  const [rows, fields] = await connection.excute(
+    `INSERT INTO user(name, age) VALUES(?, ?)`, [name, age]);
+  res.send('값이 추가되었습니다..');
+});
 
 app.listen(PORT, async () => {
   connection = await mysql.createConnection({
