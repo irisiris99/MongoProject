@@ -11,7 +11,7 @@ const database = [
   { id:3, title: '글3'},
 ];
 
-const PORT = process.env.PORT || 3000;
+const PORT :any = process.env.PORT || 3000;
 
 app.use(express.static('build'));
 app.use(express.json());
