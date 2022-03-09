@@ -6,7 +6,7 @@ const mysql = require('mysql2/promise');
 
 let connection :any;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3006;
 
 app.use(express.static('build'));
 
