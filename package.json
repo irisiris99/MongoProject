@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "client-build": "cd client && npm ci && npm run build && cd ../",
     "server-build": "cd server && npm ci --dev && npm run build && cd ../",
@@ -20,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/irisiris99/MongoProject/issues"
   },
-  "homepage": "https://github.com/irisiris99/MongoProject#readme"
+  "homepage": "https://github.com/irisiris99/MongoProject#readme",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.26.1"
+  }
 }

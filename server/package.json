@@ -19,7 +19,9 @@
     "express": "^4.17.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15"
+    "nodeenv": "^3.0.74",
+    "nodemon": "^2.0.15",
+    "virtualenv": "^0.3.1"
   },
   "description": "",
   "optionalDependencies": {

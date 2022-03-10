@@ -22,7 +22,7 @@ app.use(express_1.default.static('build'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/build/index.html');
+    res.sendFile(__dirname + './build/index.html');
 });
 app.get('/database', function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -43,6 +43,13 @@ app.put('/database', function (req, res) {
         const { id, name, age } = req.body;
         const [rows, fields] = yield connection.execute(`UPDATE user SET name=?, age=? WHERE id=?`, [name, age, id]);
         res.send('값이 수정되었습니다..');
+    });
+});
+app.delete('/database/:id', function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const id = req.params.id;
+        const [rows, fields] = yield connection.execute(`DELETE FROM user WHERE id=?`, [id]);
+        res.send('값이 삭제되었습니다..');
     });
 });
 app.listen(3000, () => __awaiter(void 0, void 0, void 0, function* () {
