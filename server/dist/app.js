@@ -15,13 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const mysql = require('mysql2/promise');
+// http://localhost:3000
 let connection;
-const database = [
-    { id: 1, title: '글1' },
-    { id: 2, title: '글2' },
-    { id: 3, title: '글3' },
-];
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.use(express_1.default.static('build'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
@@ -30,7 +26,7 @@ app.get('/', function (req, res) {
 });
 app.get('/database', function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const [rows, fields] = yield connection.excute(`SELECT * FROM user`);
+        const [rows, fields] = yield connection.execute(`SELECT * FROM user`);
         console.log('rows : ', rows);
         res.send(rows);
     });
@@ -38,16 +34,23 @@ app.get('/database', function (req, res) {
 app.post('/database', function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { name, age } = req.body;
-        const [rows, fields] = yield connection.excute(`INSERT INTO user(name, age) VALUES(?, ?)`, [name, age]);
+        const [rows, fields] = yield connection.execute(`INSERT INTO user(name, age) VALUES(?, ?)`, [name, age]);
         res.send('값이 추가되었습니다..');
     });
 });
-app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
+app.put('/database', function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { id, name, age } = req.body;
+        const [rows, fields] = yield connection.execute(`UPDATE user SET name=?, age=? WHERE id=?`, [name, age, id]);
+        res.send('값이 수정되었습니다..');
+    });
+});
+app.listen(3000, () => __awaiter(void 0, void 0, void 0, function* () {
     connection = yield mysql.createConnection({
         host: 'localhost',
         user: 'root',
         database: 'myapp',
         password: 'root',
     });
-    console.log('server running !');
+    console.log('Server On !');
 }));
