@@ -29,25 +29,25 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
 app.get('/database', function (req, res) {
-  return __awaiter(this, void 0, void 0, function* () {
-      const [rows, fields] = yield connection.excute(`SELECT * FROM user`);
-      console.log('rows : ', rows);
-      res.send(rows);
-  });
+    return __awaiter(this, void 0, void 0, function* () {
+        const [rows, fields] = yield connection.excute(`SELECT * FROM user`);
+        console.log('rows : ', rows);
+        res.send(rows);
+    });
 });
-app.post('database', function (req, res) {
-  const title = req.body.title;
-  database.push({
-      id: database.length + 1,
-      title,
-  });
+app.post('/database', function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { name, age } = req.body;
+        const [rows, fields] = yield connection.excute(`INSERT INTO user(name, age) VALUES(?, ?)`, [name, age]);
+        res.send('값이 추가되었습니다..');
+    });
 });
 app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
-  connection = yield mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      database: 'myapp',
-      password: 'root',
-  });
-  console.log('server running !');
+    connection = yield mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        database: 'myapp',
+        password: 'root',
+    });
+    console.log('server running !');
 }));

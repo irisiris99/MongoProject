@@ -3,6 +3,8 @@ import express from 'express';
 const app = express();
 const mysql = require('mysql2/promise');
 
+// http://localhost:3000
+
 let connection :any;
 
 const database = [
@@ -43,3 +45,7 @@ app.listen(PORT, async () => {
   });
   console.log('server running !');
 });
+
+function test() :any {
+  console.log('DTD');
+};
