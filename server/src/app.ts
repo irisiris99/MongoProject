@@ -3,8 +3,6 @@ import express from 'express';
 const app = express();
 const mysql = require('mysql2/promise');
 
-// http://localhost:3000
-
 let connection :any;
 
 const PORT :any = process.env.PORT || 3000;
