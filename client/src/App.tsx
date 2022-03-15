@@ -6,9 +6,18 @@ function App() {
 
   return (
     <div className="app">
-      <h1>아이리스 마켓</h1>
-      <input type="button" value="상품 등록"/>
-      <input type="button" value="등록 제거"/>
+      <div className="header">
+        <h1>고객 정보 리스트</h1>
+      </div>
+      <div className="table-header">
+        <p>ID</p>
+        <p>Name</p>
+        <p>Email</p>
+        <p>Phone</p>
+        <p>Website</p>
+        <p>Edit</p>
+        <p>Delete</p>
+      </div>
     </div>
   );
 }
