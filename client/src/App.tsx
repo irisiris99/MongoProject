@@ -7,16 +7,13 @@ function App() {
   return (
     <div className="app">
       <div className="header">
-        <h1>고객 정보 리스트</h1>
+        <h1>나의 아이디 보관소</h1>
       </div>
       <div className="table-header">
+        <p>No.</p>
         <p>ID</p>
-        <p>Name</p>
-        <p>Email</p>
-        <p>Phone</p>
-        <p>Website</p>
-        <p>Edit</p>
-        <p>Delete</p>
+        <p>Password</p>
+        <p>사이트</p>
       </div>
     </div>
   );
