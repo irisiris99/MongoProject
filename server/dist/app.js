@@ -15,9 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const mysql = require('mysql2/promise');
-// http://localhost:3000
 let connection;
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 app.use(express_1.default.static('build'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
