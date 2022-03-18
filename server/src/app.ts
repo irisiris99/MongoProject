@@ -25,21 +25,21 @@ app.post('/database', async function (req, res) {
   const { name, age } = req.body;
   const [rows, fields] = await connection.execute(
     `INSERT INTO user(name, age) VALUES(?, ?)`, [name, age]);
-  res.send('값이 추가되었습니다..');
+  res.send('값이 추가되었습니다.');
 });
 
 app.put('/database', async function (req, res) {
   const { id, name, age } = req.body;
   const [rows, fields] = await connection.execute(
     `UPDATE user SET name=?, age=? WHERE id=?`, [name, age, id]);
-  res.send('값이 수정되었습니다..');
+  res.send('값이 수정되었습니다.');
 });
 
 app.delete('/database/:id', async function (req, res) {
   const id = req.params.id;
   const [rows, fields] = await connection.execute(
     `DELETE FROM user WHERE id=?`, [id]);
-  res.send('값이 삭제되었습니다..');
+  res.send('값이 삭제되었습니다.');
 });
 
 
