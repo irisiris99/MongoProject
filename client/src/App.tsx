@@ -7,7 +7,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const getMovies = async () => {
     const json = await (await
-      await fetch(`https://yts.mx/api/v2/list_movies.json?minimun_rating=8`
+      await fetch(`https://localhost::3000/database/`
       )
     ).json();
     setMovies(json.data.movies);
