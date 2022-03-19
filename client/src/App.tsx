@@ -1,20 +1,31 @@
 import './App.css';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    const json = await (await
+      await fetch(`https://yts.mx/api/v2/list_movies.json?minimun_rating=8`
+      )
+    ).json();
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
-    <div className="app">
-      <div className="header">
-        <h1>아이디 보관소</h1>
-      </div>
-      <div className="table-header">
-        <p>No.</p>
-        <p>ID</p>
-        <p>Password</p>
-        <p>Name</p>
-        <p>age</p>
-      </div>
+    <div>
+      {loading ? (
+        <h1>Loading...</h1> 
+      ) : (
+        <div>
+
+        </div>
+      )}
     </div>
   );
 }
