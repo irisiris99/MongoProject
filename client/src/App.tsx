@@ -1,24 +1,28 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { setTextRange } from 'typescript';
 
 
-const Users = () => {
-  useEffect(() => {
-    axios.get('http://localhost:3000/database')
-      .then(response => {
-        console.log(response)
+function App ()  {
+  const [data, setData] = useState(null);
+
+  const onClick = () => {
+    axios.get("http://localhost:3000/database/")
+      .then((response) => {
+        setData(response.data);
       });
-  }, []);
+  };
+
   return (
     <div>
-      <div className="navbar">
-        <div className="navbar_logo">
-          <h1>IRIS99</h1>
-        </div>
+      <div className="button">
+        <button onClick={onClick}>가져오기</button>
       </div>
+      {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>
+      )}
     </div>
   );
 }
 
-export default Users;
+export default App;
