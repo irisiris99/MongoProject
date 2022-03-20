@@ -4,26 +4,10 @@
   color: black;
 }
 
-.app {
-  text-align: center;
-}
-
-.header {
-  width: 100%;
-  margin-top: 5%;
-}
-
-.table-header {
-  width: 100%;
+.button {
+  padding: 1%;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3%;
-}
-
-.table-header p {
-  width: 2%;
-  padding: 0.5% 5%;
-  border: 1px solid black;
-  background-color: cornflowerblue;
 }

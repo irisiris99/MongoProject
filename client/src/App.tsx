@@ -1,7 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { setTextRange } from 'typescript';
 
 
 function App ()  {
@@ -16,8 +15,8 @@ function App ()  {
 
   return (
     <div>
-      <div className="button">
-        <button onClick={onClick}>가져오기</button>
+      <div>
+        <button className="button" onClick={onClick}>가져오기</button>
       </div>
       {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>
       )}
