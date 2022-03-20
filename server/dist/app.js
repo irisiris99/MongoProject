@@ -21,7 +21,7 @@ app.use(express_1.default.static('build'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + './build/index.html');
+    res.sendFile(__dirname + 'http://localhost:3000');
 });
 app.get('/database', function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
