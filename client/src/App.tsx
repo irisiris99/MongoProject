@@ -19,13 +19,7 @@ function App() {
 
   return (
     <div>
-      {loading ? (
-        <h1>Loading...</h1> 
-      ) : (
-        <div>
-
-        </div>
-      )}
+      <h1>HOME</h1>
     </div>
   );
 }
