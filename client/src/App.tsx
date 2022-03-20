@@ -1,27 +1,24 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
-function App() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  const getMovies = async () => {
-    const json = await (await
-      await fetch(`https://localhost::3000/database/`
-      )
-    ).json();
-    setMovies(json.data.movies);
-    setLoading(false);
-  };
+const Users = () => {
   useEffect(() => {
-    getMovies();
+    axios.get('http://localhost:3000/database')
+      .then(response => {
+        console.log(response)
+      });
   }, []);
-
   return (
     <div>
-      <h1>HOME</h1>
+      <div className="navbar">
+        <div className="navbar_logo">
+          <h1>IRIS99</h1>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default Users;
