@@ -16,7 +16,7 @@ function App ()  {
   return (
     <div>
       <div>
-        <button className="load-data" onClick={onClick}>불러오기</button>
+        <button className="load-data" onClick={onClick}>유저 1</button>
       </div>
       {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>
       )}
