@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-function App ()  {
+function App() {
   const [data, setData] = useState(null);
 
   const onClick = () => {
@@ -17,7 +17,6 @@ function App ()  {
     <div>
       <div>
         <button className="load-data" onClick={onClick}>LOAD DATA</button>
-        <button className="load-data" onClick={onClick}>LOAD DATA2</button>
       </div>
       {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>
       )}
