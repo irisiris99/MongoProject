@@ -14,12 +14,14 @@ function App() {
   };
 
   const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
   const onChange = (event :any) => setToDo(event.target.value);
   const onSubmit = (event :any) => {
     event.preventDefault();
     if (toDo === "") {
       return;
     }
+    setToDos((currentArray) : any => [toDo, ...currentArray]);
     setToDo("");
   }
 
@@ -30,6 +32,7 @@ function App() {
       </div>
       {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>)}
       <div>
+        <h1>Easy To Dos {toDos.length}</h1>
         <form onSubmit={onSubmit}>
           <input 
             onChange={onChange}
