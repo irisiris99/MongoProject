@@ -39,7 +39,7 @@ function App() {
             value={toDo} 
             type="text" 
             placeholder="Write To Do.." />
-          <button>Add To Do</button>
+          <button>Add To Dos</button>
         </form>
       </div>
     </div>
