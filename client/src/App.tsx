@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className="load-button">
         <button className="load-data" onClick={onClick}>LOAD DATA</button>
       </div>
       {data && (<textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true}></textarea>)}
