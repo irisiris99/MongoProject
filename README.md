@@ -1,1 +1,1 @@
-# express-mysql
+# express-mySQL
